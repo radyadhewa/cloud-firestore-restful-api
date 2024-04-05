@@ -16,7 +16,9 @@ def create_app():
     '''
   
   from .ticketAPI import ticketAPI
+  from .stadiumAPI import stadiumAPI
   
   app.register_blueprint(ticketAPI, url_prefix='/ticket')
+  app.register_blueprint(stadiumAPI, url_prefix='/stadium')
   
   return app
