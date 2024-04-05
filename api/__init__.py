@@ -9,6 +9,12 @@ def create_app():
   app = Flask(__name__)
   app.config['SECRET_KEY'] = SECRET_KEY
   
+  @app.route('/')
+  def root():
+      return '''
+    Selamat datang di API Pemesanan ticket sepakbola dunia, berikut beberapa cara untuk akses layanan CRUD
+    '''
+  
   from .ticketAPI import ticketAPI
   
   app.register_blueprint(ticketAPI, url_prefix='/ticket')
