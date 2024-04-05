@@ -39,3 +39,16 @@ def read():
         return jsonify(all_ticket), 200
     except Exception as e:
       return f"An error occured: {e}", 400
+    
+@ticketAPI.route('/update/<id>', methods=['POST', 'PUT'])
+def update(id):
+    try:
+      data = request.json
+      if id is None:
+        return jsonify({"Error": "Missing 'id' in the request"}), 400
+      
+      id = str(id)
+      ticket_Ref.document(id).update(request.json)
+      return jsonify({"success": True}), 200
+    except Exception as e:
+      return f"An error occured: {e}", 400
