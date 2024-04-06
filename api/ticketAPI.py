@@ -141,6 +141,4 @@ def join():
                 'Tiket': Tiket.to_dict(),
                 'stadium': stadium.to_dict()
             })
-    
-
     return jsonify({"access_time": current_datetime,'data': joined_data})
